@@ -1,0 +1,45 @@
+
+" Pylint
+function! Pylint()
+    " disable C0103 - variable name does not match convention
+    " disable C0111 - missing docstring
+    " disable C0301 - line too long (more than 80 characters)
+    " disable C0322 - operator not preceeded by a space
+    " disable C0323 - operator not followed by a space
+    " disable C0324 - comma not followed by a space
+    " disable R0902 - too many instance attributes
+    " disable R0904 - too many public methods
+    " disable R0912 - too many local branches
+    " disable R0913 - too many local arguments
+    " disable R0914 - too many local variables
+    " disable R0915 - too many local statements
+    " disable W0511 - no config file found, using default
+    "call CustomCompile("pylint -d C0103,C0111,C0301,C0322,C0323,C0324,R0902,R0904,R0912,R0913,R0914,R0915,W0511 %", "%A%f:%l: [%t%.%#] %m,%Z%p^^,%-C%.%#")
+    let oldMakeprg = &makeprg
+    let oldErrorFormat = &efm
+    "set makeprg=pylint\ -d\ C0103,C0111,C0301,C0322,C0323,C0324,R0902,R0904,R0912,R0913,R0914,R0915,W0511\ --output-format=parseable\ %
+    " Set indent-string to two spaces (rather than default 4)
+    set makeprg=pylint\ --output-format=parseable\ %
+    set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+    "set efm=%t:%l:%m
+    "exe "Cd"
+    exe "make!"
+    let &makeprg=l:oldMakeprg
+    set efm=&oldErrorFormat
+endfunction
+
+command! Pylint call Pylint()
+
+function! Pychecker()
+    "call CustomCompile("pychecker %", "%f:%l: %m")
+    let oldMakeprg = &makeprg
+    let oldErrorFormat = &efm
+    set makeprg=pychecker\ --limit\ 0\ --only\ %
+    set efm=%f:%l:\ %m
+    "exe "Cd"
+    exe "make!"
+    let &makeprg=l:oldMakeprg
+    set efm=&oldErrorFormat
+endfunction
+
+command! Pychecker call Pychecker()

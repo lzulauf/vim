@@ -1,0 +1,88 @@
+
+" p4 utils
+" Diff
+noremap <C-d> :silent! !/home/lzulauf/scripts/diff.py % &<CR>
+" Check Out
+noremap <C-e> :!p4 edit %<CR>
+
+" p4 review
+function! Review()
+    :silent! !/home/lzulauf/scripts/p4review.py %
+endfunction
+comm! -nargs=0 Review call Review()
+
+" p4 Timelapse
+function! Timelapse()
+    :!/home/lzulauf/scripts/p4timelapse.py %
+endfunction
+comm! -nargs=0 Timelapse call Timelapse()
+
+" function! Diff(offset1, offset2)
+"     execute ":!/home/lzulauf/scripts/diff.py % " . a:offset1 . " " . a:offset2 
+" endfunction
+
+function! Diff(...)
+    " TODO - Add support for specifying revision info
+    let l:filename = expand("%") "Expand relative path. use %:p for full path
+    let l:syn = &syntax
+    :diffthis
+    :vnew
+
+    :setlocal buftype=nofile
+    :setlocal bufhidden=hide
+    :setlocal noswapfile
+    execute "set syntax=" . l:syn
+
+    if a:0 == 0
+        let l:revision = "HEAD"
+    else
+        let l:revision = a:1
+    endif
+    echo "silent read!/usr/bin/git show ".l:revision.":".l:filename
+    execute "silent read!/usr/bin/git show ".l:revision.":".l:filename
+
+    " For some reason it adds a line to the beginning and end of the file
+    " Kill the first line
+    normal! ggdd
+    " Kill the last line
+    "normal! Gdd
+    " Jump back to the first line
+    normal! gg
+
+    diffthis
+endfunction
+comm! -nargs=? Diff call Diff(<f-args>)
+
+" blame command
+function! Blame(...)
+    " Save off filename
+    :let l:filename = expand("%") "Expand relative path. use %:p for full path
+    " Turn on line numbers for the original buffer
+    :set number                                 
+    " Get the top visible lines
+    :let l:topline = line("w0")
+    :let l:botline = line("w$")
+    " Create a new buffer
+    :vnew                                       
+
+    " Make it a scratch buffer
+    " see help special_buffers
+    :setlocal buftype=nofile
+    :setlocal bufhidden=hide
+    :setlocal noswapfile
+
+    " Paste git blame info
+    if a:0 == 0
+        execute "silent read!/usr/bin/git blame" l:filename
+    else
+        let l:revision = a:1
+        execute "silent read!/usr/bin/git blame" l:revision l:filename
+    endif
+    " Remove empty lines
+    :g/^[\ \t]*$/d                              
+    " TODO scroll blame window to match topline/botline of original window
+    " Remove line numbers
+    :set nonumber
+endfunction
+comm! -nargs=? Blame call Blame(<f-args>)
+

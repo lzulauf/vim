@@ -1,0 +1,51 @@
+
+" Set CScope info
+" use CScope tags instead of normal Tags
+if has('cscope')
+    set cst
+    if has('quickfix')
+        set csqf=s-,c-,d-,i-,t-,e-
+    endif        
+    cnoreabbrev <expr> csa
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs add'  : 'csa')
+    cnoreabbrev <expr> csf
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs find' : 'csf')
+    cnoreabbrev <expr> csff
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find f' : 'csff')
+    cnoreabbrev <expr> csfs
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find s' : 'csfs')
+    cnoreabbrev <expr> csfg
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find g' : 'csfg')
+    cnoreabbrev <expr> csft
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find t' : 'csft')
+    cnoreabbrev <expr> csfc
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find c' : 'csfc')
+    cnoreabbrev <expr> csfd
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find d' : 'csfd')
+    cnoreabbrev <expr> csfi
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find i' : 'csfi')
+    cnoreabbrev <expr> csfe
+     \ ((getcmdtype() == ':' && getcmdpos() <= 5)? 'cs find e' : 'csfe')
+    cnoreabbrev <expr> csk
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs kill' : 'csk')
+    cnoreabbrev <expr> csr
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs reset' : 'csr')
+    cnoreabbrev <expr> css
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs show' : 'css')
+    cnoreabbrev <expr> csh
+     \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
+endif
+
+" Load Cscope Databases
+"
+" Get all the cscope databases in the current directory
+" Only do this if not already done.
+if !exists("g:cscopes_loaded")
+    let g:cscopes_loaded = 1
+    let dbs = split(globpath('.', '.*.cscope'), '\n')
+    set nocsverb
+    for db in dbs
+        exe "cs add ".db
+    endfor
+    set csverb
+endif

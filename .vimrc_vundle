@@ -1,0 +1,86 @@
+set nocompatible
+filetype off
+set rtp+=~/.vundle/vundle
+call vundle#rc('$HOME/.vundle')
+
+Bundle 'gmarik/vundle'
+
+" Better python folding
+"Bundle 'Efficient-python-folding'            
+
+" Fancy status bar
+Bundle 'Lokaltog/vim-powerline'
+
+" For use with Unite
+Bundle 'Shougo/neomru.vim'
+
+" Quick jumping to file
+Bundle 'Shougo/unite.vim'
+
+" Run processes in the background
+Bundle 'Shougo/vimproc.vim'
+
+" Shows marks in a file
+"Bundle 'ShowMarks7'
+
+" Text Snippets
+"Bundle 'UltiSnips'
+
+" Visual representation of indentations
+" WARNING: SUPER SLOW
+" To see timing:
+" :syntime on
+" browse file
+" :syntime report
+" Bundle 'Yggdroot/indentLine'
+
+" Quickly jump to alternate file
+"Bundle 'a.vim'
+
+" Solarized color scheme
+Bundle 'altercation/vim-colors-solarized'
+
+" tmux integration
+"Bundle 'benmills/vimux'
+
+" camelcase motion
+Bundle 'camelcasemotion'
+
+" Time lapse view of commits for file
+"Bundle 'git-time-lapse'
+
+" Quickly jump to files
+" Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
+"Bundle 'git://git.wincent.com/command-t.git'
+
+" Undo tree visualization
+"Bundle 'Gundo'
+
+" Diff two blocks of lines
+Bundle 'linediff.vim'
+
+" Show status of lines from version control
+"Bundle 'mhinz/vim-signify'
+
+" Integration of ack
+Bundle 'mileszs/ack.vim'
+
+"Bundle 'minibufexpl.vim'
+"Bundle 'MultipleSearch'
+Bundle 'nathanaelkane/vim-indent-guides'
+"Bundle 'python_match.vim'
+"Bundle 'recover.vim'
+Bundle 'scrooloose/nerdcommenter'
+"Bundle 'sjl/splice.vim'
+"Bundle 'snipMate'
+"Bundle 'Tagbar'
+"Bundle 'taglist.vim'
+"Bundle 'terryma/vim-expand-region'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-obsession'
+"Bundle 'tpope/vim-pathogen'
+Bundle 'Valloric/YouCompleteMe'
+"Bundle 'vim-indent-object'
+Bundle 'vimwiki'
+
+filetype on

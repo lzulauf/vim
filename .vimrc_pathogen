@@ -1,0 +1,50 @@
+" Pathogen support
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+if !exists("g:pathogen_disabled")
+  let g:pathogen_disabled = []
+endif
+call add(g:pathogen_disabled, 'BufOnly.vim')
+call add(g:pathogen_disabled, 'command-t')
+call add(g:pathogen_disabled, 'Conque-Shell')
+call add(g:pathogen_disabled, 'cppcomplete')
+call add(g:pathogen_disabled, 'Efficient-python-folding')
+call add(g:pathogen_disabled, 'genutils')
+call add(g:pathogen_disabled, 'glsl.vim')
+call add(g:pathogen_disabled, 'grep.vim')
+call add(g:pathogen_disabled, 'imaps.vim')
+call add(g:pathogen_disabled, 'matchit')
+call add(g:pathogen_disabled, 'minibufexpl.vim')
+call add(g:pathogen_disabled, 'PixarSyntax')
+call add(g:pathogen_disabled, 'recover.vim')
+call add(g:pathogen_disabled, 'ShowMarks7')
+call add(g:pathogen_disabled, 'snipMate')
+call add(g:pathogen_disabled, 'splice')
+call add(g:pathogen_disabled, 'git-time-lapse')
+call add(g:pathogen_disabled, 'UltiSnips')
+call add(g:pathogen_disabled, 'vim-indent-object')
+call add(g:pathogen_disabled, 'vim-pathogen')
+call add(g:pathogen_disabled, 'vimux')
+
+if has("win32")
+    call add(g:pathogen_disabled, 'gundo.vim')
+endif
+
+"call add(g:pathogen_disabled, 'a.vim')
+"call add(g:pathogen_disabled, 'camelcase')
+"call add(g:pathogen_disabled, 'cscope_macros.vim')
+"call add(g:pathogen_disabled, 'indentLine')
+"call add(g:pathogen_disabled, 'MultipleSearch.vim')
+"call add(g:pathogen_disabled, 'nerdcommenter')
+"call add(g:pathogen_disabled, 'OmniCppComplete')
+"call add(g:pathogen_disabled, 'python_match.vim')
+"call add(g:pathogen_disabled, 'solarized')
+"
+" Unite takes a TON of time to deal with its paste-buffer.
+"call add(g:pathogen_disabled, 'unite.vim')
+"
+"call add(g:pathogen_disabled, 'vim-indent-guides')
+"call add(g:pathogen_disabled, 'vimwiki')
+
+call pathogen#infect() 
+Helptags
+

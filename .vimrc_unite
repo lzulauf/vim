@@ -1,0 +1,47 @@
+
+" Unite (from http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html)
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" More Unite (from
+"let g:unite_enable_start_insert=1
+let g:unite_prompt='» '
+if executable('ag')
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='--nocolor --nogroup --ignore ext -S'
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_rec_async_command='ag --ignore ext -g ""'
+elseif executable('ack')
+  let g:unite_source_grep_command='ack'
+  let g:unite_source_grep_default_opts='--no-heading --no-color'
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_rec_async_command='ack -fk --nofilter'
+endif
+call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 500)
+
+function! UniteGrepSymbolUnderCursor()
+  let word = expand("<cword>")
+  exe "Unite grep:.::" . l:word
+endfunction
+
+nmap <space> [unite]
+" nnoremap [unite] <nop>
+" noremap [unite] :call Auto_Highlight_Cword()<cr>:set hlsearch<cr>
+
+if has('win32') || has('win64')
+  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed buffer file_mru bookmark<cr><c-u>
+  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files -start-insert file_rec:!<cr><c-u>
+else
+  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed buffer file_mru bookmark<cr><c-u>
+  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files -start-insert file_rec/async:!<cr><c-u>
+endif
+nnoremap <silent> [unite]t :<C-u>Unite -toggle -auto-resize -buffer-name=current_files file<cr>
+nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
+nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
+nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
+nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
+" nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
+nnoremap <silent> [unite]s :call UniteGrepSymbolUnderCursor()<cr>
+nnoremap <silent> [unite]cc :UniteClose<cr>

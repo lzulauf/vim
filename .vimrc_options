@@ -1,0 +1,65 @@
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
+" Turn off linewrapping
+set nowrap
+
+set expandtab " Turn tabs into spaces
+set softtabstop=2 " How many spaces to turn it into
+set tabstop=2 " If someone puts a tab in a file, they often have tabs set to 8 :(
+set smarttab
+
+" Turn autoindent into spaces
+set autoindent
+set shiftwidth=2
+
+" Highlight the current line
+" Set cursorline
+
+" Highlight the 81 column
+set colorcolumn=+1
+
+set ic " Ignore case when searching
+set history=50        " keep 50 lines of command line history
+set ruler        " show the cursor position all the time
+set showcmd        " display incomplete commands
+set incsearch        " do incremental searching
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+" Turn off the sidescroll jumping
+set sidescroll=1
+
+" Set a scroll offset so that searched for words don't appear on first or 
+" last line
+set scrolloff=10
+
+set listchars=trail:·,extends:»,precedes:«
+set list
+
+" Folding
+" To change folding set foldmethod=(indent/manual/expr)
+" To create a fold zf
+" To open a fold zo
+" To close a fold zc
+" To open all folds zr/zR
+" To close all folds zm/zM
+" To save fold state mkview
+" To load fold state loadview
+set foldmethod=indent
+set nofoldenable
+"set foldcolumn=1
+"
+if has("vms")
+  set nobackup        " do not keep a backup file, use versions instead
+else
+  "set backup        " keep a backup file
+endif
+
+
+" Configure python smart indentation to use just one shiftwidth instead of 2
+" when indenting inside an open parenthesis
+let g:pyindent_open_paren = "shiftwidth() * 1"

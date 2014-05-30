@@ -1,0 +1,51 @@
+
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+
+  " Clears out all autocmds for the current group
+  autocmd! 
+
+  " For all text files set 'textwidth' to 78 characters.
+  set textwidth=0
+  autocmd FileType text setlocal textwidth=80
+  autocmd FileType cpp setlocal textwidth=80
+  autocmd FileType ?akefile* setlocal noet ts=8 sts=8 sw=8
+  autocmd FileType python setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType html setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType htmldjango setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType javascript setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType css setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType scss setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType vim setlocal textwidth=0
+  "autocmd FileType vimwiki setlocal textwidth=80
+  autocmd FileType vimwiki call VimwikiColors()
+
+" xenv filetypes
+autocmd BufRead,BufNewFile *.xenv set filetype=python
+
+" doxygen filetypes
+autocmd BufRead,BufNewFile *.dox set filetype=doxygen
+
+autocmd BufEnter,BufRead,WinEnter *.cpp,*.c,*.h,*.hpp set smartindent
+autocmd BufEnter,BufRead,WinEnter *.py set nosmartindent
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+  augroup END
+endif " has("autocmd")
