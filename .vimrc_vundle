@@ -26,6 +26,9 @@ Bundle 'Shougo/vimproc.vim'
 " Text Snippets
 "Bundle 'UltiSnips'
 
+" Crunch math plugin
+Bundle 'arecarn/crunch'
+
 " Visual representation of indentations
 " WARNING: SUPER SLOW
 " To see timing:
@@ -46,6 +49,9 @@ Bundle 'altercation/vim-colors-solarized'
 " camelcase motion
 Bundle 'camelcasemotion'
 
+" CSV file handling
+Bundle 'chrisbra/csv.vim'
+
 " Time lapse view of commits for file
 "Bundle 'git-time-lapse'
 
@@ -53,8 +59,14 @@ Bundle 'camelcasemotion'
 " Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
 "Bundle 'git://git.wincent.com/command-t.git'
 
+" Special snipmate branch that's maintained
+" vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+
 " Undo tree visualization
-"Bundle 'Gundo'
+Bundle 'Gundo'
 
 " Diff two blocks of lines
 Bundle 'linediff.vim'

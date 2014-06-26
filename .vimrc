@@ -210,6 +210,11 @@ if !has("win32")
         :1,$ !xmllint --format -
     endfunction
     command! XmlPretty call XmlPretty()
+
+    function! JsonPretty()
+      :1,$ !python -m json.tool
+    endfunction
+    command! JsonPretty call JsonPretty()
 endif
 
 " Displays the syntax hilight in the status line
@@ -221,6 +226,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-
-
-
+" SnipMate
+:imap <C-J> <Plug>snipMateNextOrTrigger
+:smap <C-J> <Plug>snipMateNextOrTrigger
