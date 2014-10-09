@@ -61,8 +61,8 @@ Bundle 'chrisbra/csv.vim'
 
 " Special snipmate branch that's maintained
 " vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 
 " Undo tree visualization
@@ -88,6 +88,7 @@ Bundle 'scrooloose/nerdcommenter'
 "Bundle 'Tagbar'
 "Bundle 'taglist.vim'
 "Bundle 'terryma/vim-expand-region'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-obsession'
 "Bundle 'tpope/vim-pathogen'

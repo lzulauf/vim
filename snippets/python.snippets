@@ -1,5 +1,12 @@
 snippet cli
-	if __name__ == '__main__':
+	import sys
+	
+	def main():
 		import argparse
 		parser = argparse.ArgumentParser()
 		args = parser.parse_args()
+
+		return True
+	
+	if __name__ == '__main__':
+		sys.exit(main())
