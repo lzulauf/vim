@@ -74,7 +74,7 @@ Bundle 'linediff.vim'
 " Show status of lines from version control
 "Bundle 'mhinz/vim-signify'
 
-" Integration of ack
+" Integration of ack (needed for ag)
 Bundle 'mileszs/ack.vim'
 
 "Bundle 'minibufexpl.vim'
