@@ -1,0 +1,6 @@
+function! Pep8()
+  set tabstop=4
+  set softtabstop=4
+  set shiftwidth=4
+endfunction
+command! -nargs=0 Pep8 call Pep8()

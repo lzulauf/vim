@@ -13,6 +13,8 @@ source $VIMRC_DIR/.vimrc_colors
 source $VIMRC_DIR/.vimrc_cscope
 source $VIMRC_DIR/.vimrc_linter
 source $VIMRC_DIR/.vimrc_autocmd
+source $VIMRC_DIR/.vimrc_snips
+source $VIMRC_DIR/.vimrc_functions
 
 
 " Set quickfix window to span the entire bottom of screen
@@ -226,6 +228,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" SnipMate
-:imap <C-J> <Plug>snipMateNextOrTrigger
-:smap <C-J> <Plug>snipMateNextOrTrigger
+
+" quickfixsigns setup
+"let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'vcsdiff', 'breakpoints']
+let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']

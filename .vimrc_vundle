@@ -1,33 +1,34 @@
 set nocompatible
 filetype off
 set rtp+=~/.vundle/vundle
-call vundle#rc('$HOME/.vundle')
 
-Bundle 'gmarik/vundle'
+call vundle#begin('$HOME/.vundle')
+
+Plugin 'gmarik/vundle'
 
 " Better python folding
-"Bundle 'Efficient-python-folding'            
+"Plugin 'Efficient-python-folding'
 
 " Fancy status bar
-Bundle 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline'
 
 " For use with Unite
-Bundle 'Shougo/neomru.vim'
+Plugin 'Shougo/neomru.vim'
 
 " Quick jumping to file
-Bundle 'Shougo/unite.vim'
+Plugin 'Shougo/unite.vim'
 
 " Run processes in the background
-Bundle 'Shougo/vimproc.vim'
+Plugin 'Shougo/vimproc.vim'
 
 " Shows marks in a file
-"Bundle 'ShowMarks7'
+"Plugin 'ShowMarks7'
 
 " Text Snippets
-"Bundle 'UltiSnips'
+"Plugin 'UltiSnips'
 
 " Crunch math plugin
-Bundle 'arecarn/crunch'
+Plugin 'arecarn/crunch'
 
 " Visual representation of indentations
 " WARNING: SUPER SLOW
@@ -35,65 +36,71 @@ Bundle 'arecarn/crunch'
 " :syntime on
 " browse file
 " :syntime report
-" Bundle 'Yggdroot/indentLine'
+" Plugin 'Yggdroot/indentLine'
 
 " Quickly jump to alternate file
-"Bundle 'a.vim'
+"Plugin 'a.vim'
 
 " Solarized color scheme
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
 " tmux integration
-"Bundle 'benmills/vimux'
+"Plugin 'benmills/vimux'
 
 " camelcase motion
-Bundle 'camelcasemotion'
+Plugin 'camelcasemotion'
 
 " CSV file handling
-Bundle 'chrisbra/csv.vim'
+Plugin 'chrisbra/csv.vim'
 
 " Time lapse view of commits for file
-"Bundle 'git-time-lapse'
+"Plugin 'git-time-lapse'
 
 " Quickly jump to files
 " Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
-"Bundle 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 
 " Special snipmate branch that's maintained
 " vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 
 " Undo tree visualization
-Bundle 'Gundo'
+Plugin 'Gundo'
 
 " Diff two blocks of lines
-Bundle 'linediff.vim'
+Plugin 'linediff.vim'
 
 " Show status of lines from version control
-"Bundle 'mhinz/vim-signify'
+"Plugin 'mhinz/vim-signify'
 
 " Integration of ack (needed for ag)
-Bundle 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 
-"Bundle 'minibufexpl.vim'
-"Bundle 'MultipleSearch'
-Bundle 'nathanaelkane/vim-indent-guides'
-"Bundle 'python_match.vim'
-"Bundle 'recover.vim'
-Bundle 'scrooloose/nerdcommenter'
-"Bundle 'sjl/splice.vim'
-"Bundle 'snipMate'
-"Bundle 'Tagbar'
-"Bundle 'taglist.vim'
-"Bundle 'terryma/vim-expand-region'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-obsession'
-"Bundle 'tpope/vim-pathogen'
-Bundle 'Valloric/YouCompleteMe'
-"Bundle 'vim-indent-object'
-Bundle 'vimwiki'
+" Rainbow parens
+Plugin 'luochen1990/rainbow'
+let g:rainbow_active=1
 
-filetype on
+"Plugin 'minibufexpl.vim'
+"Plugin 'MultipleSearch'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'python_match.vim'
+"Plugin 'recover.vim'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'sjl/splice.vim'
+"Plugin 'snipMate'
+"Plugin 'Tagbar'
+"Plugin 'taglist.vim'
+"Plugin 'terryma/vim-expand-region'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tomtom/quickfixsigns_vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-obsession'
+"Plugin 'tpope/vim-pathogen'
+Plugin 'Valloric/YouCompleteMe'
+"Plugin 'vim-indent-object'
+Plugin 'vimwiki'
+
+call vundle#end()
+filetype plugin on
