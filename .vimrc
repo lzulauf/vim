@@ -37,7 +37,7 @@ function! ToggleLineNumbers()
     :redraw!
 endfunction
 
-:nmap <C-N> :silent call ToggleLineNumbers()<CR>
+":nmap <C-N> :silent call ToggleLineNumbers()<CR>
 
 " Map Ctrl-Left/Right to previous/next tab
 :noremap <C-Right> :tabn<CR>
@@ -232,3 +232,11 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " quickfixsigns setup
 "let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'vcsdiff', 'breakpoints']
 let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
+
+" Multiple Cursor Setup
+" Make C-n default to match whole words, (and make g<C-n> match non-word boundaries)
+let g:multi_cursor_start_key='g<C-n>'
+let g:multi_cursor_start_word_key='<C-n>'
+" Allow normal mode leader keys to work (such as camelCaseMotion and delete motions)
+let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
+

@@ -47,3 +47,5 @@ nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mappin
 " nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
 nnoremap <silent> [unite]s :call UniteGrepSymbolUnderCursor()<cr>
 nnoremap <silent> [unite]cc :UniteClose<cr>
+nnoremap <silent> [unite]n :UniteNext<cr>
+nnoremap <silent> [unite]p :UnitePrevious<cr>
