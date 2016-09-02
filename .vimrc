@@ -67,16 +67,3 @@ noremap <silent> <leader>n :noh<Bar>echo<CR>
 " Allow indenting during edit
 "imap >> <esc>:normal mz>><CR>`zlllla
 "imap << <esc>:normal mz<<<CR>`zhhhha
-
-
-" quickfixsigns setup
-"let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'vcsdiff', 'breakpoints']
-let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
-
-" Multiple Cursor Setup
-" Make C-n default to match whole words, (and make g<C-n> match non-word boundaries)
-let g:multi_cursor_start_key='g<C-n>'
-let g:multi_cursor_start_word_key='<C-n>'
-" Allow normal mode leader keys to work (such as camelCaseMotion and delete motions)
-let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
-
