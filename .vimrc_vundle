@@ -6,9 +6,6 @@ call vundle#begin('$HOME/.vundle')
 
 Plugin 'gmarik/vundle'
 
-" Better python folding
-"Plugin 'Efficient-python-folding'
-
 " Fancy status bar
 Plugin 'Lokaltog/vim-powerline'
 
@@ -22,30 +19,28 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 
 " Shows marks in a file
-"Plugin 'ShowMarks7'
+" Not compatible with neovim?
 
 " Text Snippets
 "Plugin 'UltiSnips'
 
-" Crunch math plugin
+" Crunch math plugin (requires selection)
 Plugin 'arecarn/crunch'
+Plugin 'arecarn/selection.vim'
 
 " Visual representation of indentations
-" WARNING: SUPER SLOW
+" WARNING: SUPER SLOW (maybe not anymore)
 " To see timing:
 " :syntime on
 " browse file
 " :syntime report
-" Plugin 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 
 " Quickly jump to alternate file
 "Plugin 'a.vim'
 
 " Solarized color scheme
 Plugin 'altercation/vim-colors-solarized'
-
-" tmux integration
-"Plugin 'benmills/vimux'
 
 " camelcase motion
 Plugin 'camelcasemotion'
@@ -54,7 +49,7 @@ Plugin 'camelcasemotion'
 Plugin 'chrisbra/csv.vim'
 
 " Time lapse view of commits for file
-"Plugin 'git-time-lapse'
+Plugin 'git-time-lapse'
 
 " Quickly jump to files
 " Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
@@ -62,30 +57,32 @@ Plugin 'chrisbra/csv.vim'
 
 " Special snipmate branch that's maintained
 " vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
 
 " Undo tree visualization
 Plugin 'Gundo'
+nnoremap <F5> :GundoToggle<CR>
 
 " Diff two blocks of lines
 Plugin 'linediff.vim'
 
 " Show status of lines from version control
-"Plugin 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'
 
 " Integration of ack (needed for ag)
-Plugin 'mileszs/ack.vim'
+" Plugin 'mileszs/ack.vim'
 
 " Rainbow parens
 Plugin 'luochen1990/rainbow'
 let g:rainbow_active=1
 
-"Plugin 'minibufexpl.vim'
+Plugin 'tomtom/quickfixsigns_vim'
+
+" Plugin "michaeljsmith/vim-indent-object"
+
 "Plugin 'MultipleSearch'
-Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'python_match.vim'
 "Plugin 'recover.vim'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'sjl/splice.vim'
@@ -93,8 +90,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'Tagbar'
 "Plugin 'taglist.vim'
 "Plugin 'terryma/vim-expand-region'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tomtom/quickfixsigns_vim'
+" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 "Plugin 'tpope/vim-pathogen'

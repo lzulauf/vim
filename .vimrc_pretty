@@ -1,0 +1,12 @@
+if !has("win32")
+    function! XmlPretty()
+        :1,$ !xmllint --format -
+    endfunction
+    command! XmlPretty call XmlPretty()
+
+    function! JsonPretty()
+      :1,$ !python -m json.tool
+    endfunction
+    command! JsonPretty call JsonPretty()
+endif
+

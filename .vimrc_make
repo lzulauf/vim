@@ -1,0 +1,42 @@
+" Jump to directory of current file
+function! ChangeDirectoryToCurrentFile()
+    exe "lcd %:p:h"
+endfunction
+comm! -nargs=0 Cd call ChangeDirectoryToCurrentFile()
+
+" Make directory of current file
+function! MakeInFileDirectory()
+    let l:cwd = getcwd()
+    exe "Cd"
+    if expand("%:e") == "scss"
+        setlocal makeprg=/usr/bin/sass\ \"%\"\ \"%:p:h/../css/%:p:t:r.css\"
+    endif
+    exe "make!"
+    "exe "!makebg" v:servername "'" . &makeprg . "'" &makeef
+    exe "normal \<Esc>"
+    exe "lcd ".l:cwd
+endfunction
+
+" This will run make in the background
+" Caveat: you need to run cgetfile regularly to update the window while the build is in progress
+" Caveat: you don't get a system beep when the build is done
+function! MakeInFileDirectory_Background()
+    exe "Cd"
+    exe "silent! !scons -u $SCCACHE_ENABLE PX_OPTLEVEL=$FLAVOR_MODE &> ~/tmp/build_output &"
+    exe "cgetfile ~/tmp/build_output"
+    exe "copen"
+endfunction
+comm! -nargs=0 Make call MakeInFileDirectory()
+
+" TODO - this doesn't work right, yet
+function! CustomCompile(makeprg, errorformat)
+    let oldMakeprg = &makeprg
+    let oldErrorFormat = &efm
+    set makeprg=&a:makeprg
+    set efm=&a:errorformat
+    exe "Cd"
+    exe "make!"
+    let &makeprg=l:oldMakeprg
+    set efm=&oldErrorFormat
+endfunction
+

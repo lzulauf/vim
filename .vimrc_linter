@@ -20,7 +20,7 @@ function! Pychecker()
     "call CustomCompile("pychecker %", "%f:%l: %m")
     let oldMakeprg = &makeprg
     let oldErrorFormat = &efm
-    set makeprg=pychecker\ --limit\ 0\ --only\ %
+    set makeprg=/usr/local/bin/python\ `which\ humblepy`\ /usr/local/lib/python2.7/site-packages/pychecker/checker.py\ --limit\ 0\ --only\ %
     set efm=%f:%l:\ %m
     "exe "Cd"
     exe "make!"

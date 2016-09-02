@@ -1,0 +1,18 @@
+" Line Numbers
+function! ToggleLineNumbers()
+    if &number == 1
+        set relativenumber
+        echo "Relative Numbers set"
+    else
+        if &relativenumber == 1 
+            set norelativenumber
+            echo "No numbers set"
+        else
+            set number
+            echo "Numbers set"
+        endif
+    endif
+    :redraw!
+endfunction
+
+:nmap <C-N> :silent call ToggleLineNumbers()<CR>
