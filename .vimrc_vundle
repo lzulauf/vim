@@ -14,9 +14,14 @@ Plugin 'Shougo/neomru.vim'
 
 " Quick jumping to file
 Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/unite-outline'
+Plugin 'Shougo/neoyank.vim'
+Plugin 'thinca/vim-unite-history'
+" Plugin 'osyo-manga/unite-quickfix'
 
 " Run processes in the background
 Plugin 'Shougo/vimproc.vim'
+
 
 " Shows marks in a file
 " Not compatible with neovim?

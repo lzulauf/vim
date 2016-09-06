@@ -1,51 +1,51 @@
+nmap <space> [unite]
 
-" Unite (from http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html)
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" Don't beep if nothing pressed after unite leader
+nnoremap [unite] <nop>
 
-" More Unite (from
-"let g:unite_enable_start_insert=1
+" Pretty Prompt
 let g:unite_prompt='» '
+
+" Fuzzy finder
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
+" buffer-name/toggle pair prevents multiple file searches being open at once
+if has('nvim')
+  nnoremap [unite]f :<C-u>Unite -start-insert -auto-resize -buffer-name=files -toggle file_rec/neovim<CR>
+else
+  nnoremap [unite]f :<C-u>Unite -start-insert -auto-resize -buffer-name=files -toggle file_rec/async<CR>
+endif
+nnoremap [unite] <space> :<C-u>Unite -auto-resize -buffer-name=mixed -toggle buffer file_mru<CR>
+nnoremap [unite]. :<C-u>Unite -auto-resize -buffer-name=search -toggle grep:.:-w:<CR>
+nnoremap [unite]/ :<C-u>Unite -auto-resize -buffer-name=search -toggle grep:.<CR>
+nnoremap [unite]cc :<C-u>UniteClose<CR>
+nnoremap [unite]cn :<C-u>UniteNext<cr>
+nnoremap [unite]cp :<C-u>UnitePrevious<cr>
+nnoremap [unite]cr :<C-u>UniteResume<CR>
+nnoremap [unite]h/ :<C-u>Unite -auto-resize -buffer-name=history/search -toggle history/search<CR>
+nnoremap [unite]h: :<C-u>Unite -auto-resize -buffer-name=history/command -toggle history/command<CR>
+nnoremap [unite]hy :<C-u>Unite -auto-resize -buffer-name=history/yank -toggle history/yank<CR>
+nnoremap [unite]m :<C-u>Unite -auto-resize -buffer-name=mapping -toggle mapping<CR>
+nnoremap [unite]o :<C-u>Unite -auto-resize -buffer-name=outline -toggle outline<CR>
+nnoremap [unite]r :<C-u>Unite -auto-resize -buffer-name=register -toggle register<CR>
+nnoremap [unite]s :UniteWithCursorWord -auto-resize -buffer-name=search -toggle grep:.:-w<CR>
+
+" nnoremap [unite]s :exe "Unite -auto-resize -buffer-name=search -toggle grep:.:-w:" . expand("<cword>")<cr>
+
 if executable('ag')
   let g:unite_source_grep_command='ag'
-  let g:unite_source_grep_default_opts='--nocolor --nogroup --ignore ext -S'
+  let g:unite_source_grep_default_opts='--nocolor --nogroup --ignore ext --ignore .sass-cache --ignore build -S'
   let g:unite_source_grep_recursive_opt=''
-  let g:unite_source_rec_async_command='ag --ignore ext -g ""'
+  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '--ignore', 'ext', '--ignore', '.sass-cache', '--ignore', 'build', '-S', '-g', '']
 elseif executable('ack')
   let g:unite_source_grep_command='ack'
   let g:unite_source_grep_default_opts='--no-heading --no-color'
   let g:unite_source_grep_recursive_opt=''
-  let g:unite_source_rec_async_command='ack -fk --nofilter'
+  let g:unite_source_rec_async_command=['ack', '-fk', '--nofilter']
 endif
-let g:unite_source_rec_max_cache_files=5000
-call unite#custom#source('file_rec,file_rec/async', 'max_candidates', 5000)
 
-function! UniteGrepSymbolUnderCursor()
-  let word = expand("<cword>")
-  exe "Unite grep:.:-w:" . l:word
-endfunction
 
-nmap <space> [unite]
-" nnoremap [unite] <nop>
+let g:unite_source_rec_max_cache_files=20000
+call unite#custom#source('file_rec,file_rec/async,file_rec/neovim', 'max_candidates', 20000)
+
 " noremap [unite] :call Auto_Highlight_Cword()<cr>:set hlsearch<cr>
-
-if has('win32') || has('win64')
-  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed buffer file_mru bookmark<cr><c-u>
-  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files -start-insert file_rec:!<cr><c-u>
-else
-  nnoremap <silent> [unite]<space> :<C-u>Unite -toggle -auto-resize -buffer-name=mixed buffer file_mru bookmark<cr><c-u>
-  nnoremap <silent> [unite]f :<C-u>Unite -toggle -auto-resize -buffer-name=files file_rec/async:!<cr><c-u>
-endif
-nnoremap <silent> [unite]t :<C-u>Unite -toggle -auto-resize -buffer-name=current_files file<cr>
-nnoremap <silent> [unite]e :<C-u>Unite -buffer-name=recent file_mru<cr>
-nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<cr>
-nnoremap <silent> [unite]l :<C-u>Unite -auto-resize -buffer-name=line line<cr>
-nnoremap <silent> [unite]b :<C-u>Unite -auto-resize -buffer-name=buffers buffer<cr>
-nnoremap <silent> [unite]. :<C-u>Unite -no-quit -buffer-name=search grep:.:-w:<cr>
-nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
-nnoremap <silent> [unite]m :<C-u>Unite -auto-resize -buffer-name=mappings mapping<cr>
-" nnoremap <silent> [unite]s :<C-u>Unite -quick-match buffer<cr>
-nnoremap <silent> [unite]s :call UniteGrepSymbolUnderCursor()<cr>
-nnoremap <silent> [unite]cc :UniteClose<cr>
-nnoremap <silent> [unite]n :UniteNext<cr>
-nnoremap <silent> [unite]p :UnitePrevious<cr>
