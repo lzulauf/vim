@@ -4,12 +4,14 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-let $VIMRC_DIR=expand("<sfile>:p:h")
+" 1. Get the absolute path of the script
+" 2. Resolve symbolic links
+" 3. Get the folder of the resolved absolute file
+let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRC_DIR/.vimrc_vundle
 source $VIMRC_DIR/.vimrc_unite
 source $VIMRC_DIR/.vimrc_options
 source $VIMRC_DIR/.vimrc_colors
-source $VIMRC_DIR/.vimrc_cscope
 source $VIMRC_DIR/.vimrc_vimwiki
 source $VIMRC_DIR/.vimrc_linter
 source $VIMRC_DIR/.vimrc_autocmd
@@ -17,12 +19,13 @@ source $VIMRC_DIR/.vimrc_snips
 source $VIMRC_DIR/.vimrc_functions
 source $VIMRC_DIR/.vimrc_nerdcommenter
 
-"source $VIMRC_DIR/.vimrc_versioncontrol
-"source $VIMRC_DIR/.vimrc_make
-"source $VIMRC_DIR/.vimrc_snipmate
+"source $VIMRC_DIR/.vimrc_cscope " TODO investigate neovim on quit caused by this
 "source $VIMRC_DIR/.vimrc_debug
-"source $VIMRC_DIR/.vimrc_pretty
 "source $VIMRC_DIR/.vimrc_linenumbers
+"source $VIMRC_DIR/.vimrc_make
+"source $VIMRC_DIR/.vimrc_pretty
+"source $VIMRC_DIR/.vimrc_snipmate
+"source $VIMRC_DIR/.vimrc_versioncontrol
 
 " Set quickfix window to span the entire bottom of screen
 :botright cwindow
