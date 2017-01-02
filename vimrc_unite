@@ -11,11 +11,12 @@ let g:unite_prompt='» '
 
 " buffer-name/toggle pair prevents multiple file searches being open at once
 if has('nvim')
+  nnoremap [unite]<space> :<C-u>Unite -auto-resize -buffer-name=mixed -toggle buffer file_mru file_rec/neovim<CR>
   nnoremap [unite]f :<C-u>Unite -start-insert -auto-resize -buffer-name=files -toggle file_rec/neovim<CR>
 else
+  nnoremap [unite]<space> :<C-u>Unite -auto-resize -buffer-name=mixed -toggle buffer file_mru file_rec/async<CR>
   nnoremap [unite]f :<C-u>Unite -start-insert -auto-resize -buffer-name=files -toggle file_rec/async<CR>
 endif
-nnoremap [unite] <space> :<C-u>Unite -auto-resize -buffer-name=mixed -toggle buffer file_mru<CR>
 nnoremap [unite]. :<C-u>Unite -auto-resize -buffer-name=search -toggle grep:.:-w:<CR>
 nnoremap [unite]/ :<C-u>Unite -auto-resize -buffer-name=search -toggle grep:.<CR>
 nnoremap [unite]cc :<C-u>UniteClose<CR>
