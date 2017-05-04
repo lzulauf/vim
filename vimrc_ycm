@@ -1,0 +1,2 @@
+nnoremap <space>gd :<C-u>YcmCompleter GoTo<CR>
+nnoremap <space>gr :<C-u>YcmCompleter GoToReferences<CR>

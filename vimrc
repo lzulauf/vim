@@ -20,6 +20,7 @@ source $VIMRC_DIR/vimrc_autocmd
 source $VIMRC_DIR/vimrc_snips
 source $VIMRC_DIR/vimrc_functions
 source $VIMRC_DIR/vimrc_nerdcommenter
+source $VIMRC_DIR/vimrc_ycm
 
 "source $VIMRC_DIR/vimrc_cscope " TODO investigate neovim on quit caused by this
 "source $VIMRC_DIR/vimrc_debug

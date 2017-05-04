@@ -2,23 +2,10 @@
 " Vimwiki
 " Enable syntax highlighting of checked checkboxes
 let g:vimwiki_hl_cb_checked=1
-" Disable folding
-let g:vimwiki_folding=0
-" Disable auto-linking
-let g:vimwiki_camel_case=0
-" Enable chome usage
-let g:vimwiki_browsers=['google-chrome', 'firefox', 'chromium']
 " Disable hilighting of non-existent wiki links
 if !exists("g:vimwiki_list")
     let g:vimwiki_list = [{'path' : '~/Dropbox/vimwiki', 'path_html' : '~/Dropbox/vimwiki_html', 'maxhi': 0}]
 endif
-
-" It looks like g:vimwiki_browsers no longer works. I can redefine the 
-" WeblinkHandler to open up chrome explicitly
-function! VimwikiWeblinkHandler(weblink) 
-    let browser = '/usr/bin/google-chrome'
-    execute '!'.browser.' "'.a:weblink.'"'
-endfunction 
 
 " Special Vimwiki Syntax hilighting
 function! VimwikiColors()

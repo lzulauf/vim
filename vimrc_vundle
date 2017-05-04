@@ -22,6 +22,9 @@ Plugin 'thinca/vim-unite-history'
 " Run processes in the background
 Plugin 'Shougo/vimproc.vim'
 
+" Formatting
+Plugin 'sbdchd/neoformat'
+
 
 " Shows marks in a file
 " Not compatible with neovim?
@@ -93,12 +96,12 @@ let g:rainbow_active=1
 " Plugin "michaeljsmith/vim-indent-object"
 
 " Multiple Cursors
-" Plugin 'terryma/vim-multiple-cursors'
+Plugin 'terryma/vim-multiple-cursors'
 " " Make C-n default to match whole words, (and make g<C-n> match non-word boundaries)
-" let g:multi_cursor_start_key='g<C-n>'
-" let g:multi_cursor_start_word_key='<C-n>'
+let g:multi_cursor_start_key='g<C-n>'
+let g:multi_cursor_start_word_key='<C-n>'
 " " Allow normal mode leader keys to work (such as camelCaseMotion and delete motions)
-" let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
+let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
 
 " Might be slow?
 " Plugin 'w0rp/ale'

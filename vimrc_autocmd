@@ -27,7 +27,7 @@ if has("autocmd")
   autocmd FileType css setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType scss setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType vim setlocal textwidth=0
-  "autocmd FileType vimwiki setlocal textwidth=80
+  " autocmd FileType vimwiki setlocal textwidth=80
   autocmd FileType vimwiki call VimwikiColors()
 
 " xenv filetypes

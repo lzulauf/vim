@@ -3,6 +3,10 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Enable automatically reloading from disk if contents changed
+" (only works when :checktime is called
+set autoread
+
 " Turn off linewrapping
 set nowrap
 
