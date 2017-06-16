@@ -1,0 +1,18 @@
+let g:ale_linters = {
+\ 'python': [
+\   'pylint',
+\ ],
+\}
+
+let g:ale_fixers = {
+\ 'python': [
+\ ],
+\ }
+
+let g:ale_virtualenv_dir_names = [
+\ '.virtualenv',
+\]
+
+"let g:ale_python_pylint_use_global = 1 " Use the exeutable explicitly defined
+let g:ale_python_pylint_executable = '/Users/luke/.virtualenv/default/bin/python'
+let g:ale_python_pylint_options = '/usr/local/bin/pylint'

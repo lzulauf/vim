@@ -104,7 +104,7 @@ let g:multi_cursor_start_word_key='<C-n>'
 let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
 
 " Might be slow?
-" Plugin 'w0rp/ale'
+Plugin 'w0rp/ale'
 
 "Plugin 'MultipleSearch'
 "Plugin 'recover.vim'
