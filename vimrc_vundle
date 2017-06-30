@@ -118,9 +118,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-obsession'
 "Plugin 'tpope/vim-pathogen'
 if has('nvim')
-  Plugin 'Valloric/YouCompleteMe'
-  " Plugin 'Shougo/deoplete.nvim'
-  " Plugin 'zchee/deoplete-jedi'
+  "Plugin 'Valloric/YouCompleteMe'
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'zchee/deoplete-jedi'
 else
   Plugin 'Valloric/YouCompleteMe'
 endif

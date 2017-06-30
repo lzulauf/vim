@@ -12,6 +12,7 @@ let g:deoplete#enable_at_startup = 1
 let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRC_DIR/vimrc_vundle
 source $VIMRC_DIR/vimrc_unite
+source $VIMRC_DIR/vimrc_deoplete
 source $VIMRC_DIR/vimrc_ale
 source $VIMRC_DIR/vimrc_options
 source $VIMRC_DIR/vimrc_colors
