@@ -121,6 +121,7 @@ if has('nvim')
   "Plugin 'Valloric/YouCompleteMe'
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'zchee/deoplete-jedi'
+  Plugin 'davidhalter/jedi-vim'
 else
   Plugin 'Valloric/YouCompleteMe'
 endif
