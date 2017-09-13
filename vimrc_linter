@@ -5,7 +5,7 @@ function! Pylint()
     let oldErrorFormat = &efm
 
     " Mac OS screws up the path so we can't rely on humblepy launching with the correct version of python (and pylint is compiled to specific versions), so we have to chain them all together.
-    set makeprg=/usr/local/bin/python\ `which\ humblepy`\ `which\ pylint`\ --msg-template=\"{path}:{line}:\ [{msg_id}({symbol}),\ {obj}]\ {msg}\"\ %
+    set makeprg=pylint\ --msg-template=\"{path}:{line}:\ [{msg_id}({symbol}),\ {obj}]\ {msg}\"\ %
     set efm=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
     "set efm=%t:%l:%m
     "exe "Cd"
@@ -20,7 +20,7 @@ function! Pychecker()
     "call CustomCompile("pychecker %", "%f:%l: %m")
     let oldMakeprg = &makeprg
     let oldErrorFormat = &efm
-    set makeprg=/usr/local/bin/python\ `which\ humblepy`\ /usr/local/lib/python2.7/site-packages/pychecker/checker.py\ --limit\ 0\ --only\ %
+    set makeprg=pychecker\ --limit\ 0\ --only\ %
     set efm=%f:%l:\ %m
     "exe "Cd"
     exe "make!"
