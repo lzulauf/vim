@@ -5,13 +5,15 @@
 set nocompatible
 
 let g:deoplete#enable_at_startup = 1
+" Use space key for leader
+let mapleader = " "
 
 " 1. Get the absolute path of the script
 " 2. Resolve symbolic links
 " 3. Get the folder of the resolved absolute file
 let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRC_DIR/vimrc_vundle
-source $VIMRC_DIR/vimrc_unite
+"source $VIMRC_DIR/vimrc_unite
 source $VIMRC_DIR/vimrc_deoplete
 source $VIMRC_DIR/vimrc_ale
 source $VIMRC_DIR/vimrc_options
@@ -22,7 +24,9 @@ source $VIMRC_DIR/vimrc_autocmd
 source $VIMRC_DIR/vimrc_snips
 source $VIMRC_DIR/vimrc_functions
 source $VIMRC_DIR/vimrc_nerdcommenter
-source $VIMRC_DIR/vimrc_ycm
+source $VIMRC_DIR/vimrc_ack
+source $VIMRC_DIR/vimrc_ctrlp
+"source $VIMRC_DIR/vimrc_ycm
 
 "source $VIMRC_DIR/vimrc_cscope " TODO investigate neovim on quit caused by this
 "source $VIMRC_DIR/vimrc_debug

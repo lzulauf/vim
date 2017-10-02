@@ -10,13 +10,13 @@ Plugin 'gmarik/vundle'
 Plugin 'Lokaltog/vim-powerline'
 
 " For use with Unite
-Plugin 'Shougo/neomru.vim'
+"Plugin 'Shougo/neomru.vim'
 
 " Quick jumping to file
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/unite-outline'
-Plugin 'Shougo/neoyank.vim'
-Plugin 'thinca/vim-unite-history'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite-outline'
+"Plugin 'Shougo/neoyank.vim'
+"Plugin 'thinca/vim-unite-history'
 " Plugin 'osyo-manga/unite-quickfix'
 
 " Run processes in the background
@@ -73,8 +73,8 @@ Plugin 'chrisbra/csv.vim'
 " Plugin 'garbas/vim-snipmate'
 
 " Undo tree visualization
-Plugin 'Gundo'
-nnoremap <F5> :GundoToggle<CR>
+Plugin 'sjl/gundo.vim'
+nnoremap <leader>u :GundoToggle<CR>
 
 " Diff two blocks of lines
 Plugin 'linediff.vim'
@@ -83,7 +83,10 @@ Plugin 'linediff.vim'
 " Plugin 'mhinz/vim-signify'
 
 " Integration of ack (needed for ag)
-" Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
+
+" CtrlP
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Rainbow parens
 Plugin 'luochen1990/rainbow'
@@ -111,7 +114,8 @@ Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'sjl/splice.vim'
 "Plugin 'snipMate'
-"Plugin 'Tagbar'
+Plugin 'majutsushi/tagbar'
+nnoremap <leader>t :TagbarOpenAutoClose<CR>
 "Plugin 'taglist.vim'
 "Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-fugitive'

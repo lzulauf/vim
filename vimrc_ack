@@ -1,0 +1,6 @@
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+nmap <leader>/ :Ack 
+nmap <leader>. :Ack -w 
