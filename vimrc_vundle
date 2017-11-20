@@ -59,6 +59,9 @@ Plugin 'camelcasemotion'
 " CSV file handling
 Plugin 'chrisbra/csv.vim'
 
+" Argumentative swaps arguments around
+Plugin 'PeterRincker/vim-argumentative'
+
 " Time lapse view of commits for file
 " Plugin 'git-time-lapse'
 
@@ -89,8 +92,9 @@ Plugin 'mileszs/ack.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Rainbow parens
-Plugin 'luochen1990/rainbow'
-let g:rainbow_active=1
+" Breaks vim link rendering
+" Plugin 'luochen1990/rainbow'
+" let g:rainbow_active=1
 
 " Plugin 'tomtom/quickfixsigns_vim'
 " "let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'vcsdiff', 'breakpoints']

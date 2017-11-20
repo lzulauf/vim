@@ -4,3 +4,4 @@ endif
 
 nmap <leader>/ :Ack 
 nmap <leader>. :Ack -w 
+nmap <leader>s :Ack -w <cword><cr>
