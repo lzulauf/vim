@@ -2,6 +2,10 @@ if executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
+function! AckCurrentWord()
+
+endfunction
+
 nmap <leader>/ :Ack 
 nmap <leader>. :Ack -w 
 nmap <leader>s :Ack -w <cword><cr>

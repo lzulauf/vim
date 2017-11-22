@@ -122,7 +122,9 @@ Plugin 'majutsushi/tagbar'
 nnoremap <leader>t :TagbarOpenAutoClose<CR>
 "Plugin 'taglist.vim'
 "Plugin 'terryma/vim-expand-region'
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " Git support
+Plugin 'tpope/vim-rhubarb'  " Github support
+
 Plugin 'tpope/vim-obsession'
 "Plugin 'tpope/vim-pathogen'
 if has('nvim')
