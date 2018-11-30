@@ -63,6 +63,13 @@ set list
 set foldmethod=indent
 set nofoldenable
 "set foldcolumn=1
+
+" Enable undoing changes even after exiting and reopening
+set undofile
+
+" Disable swapfiles - I save often enough that it does more harm than help
+set noswapfile
+
 "
 if has("vms")
   set nobackup        " do not keep a backup file, use versions instead
