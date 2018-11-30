@@ -5,7 +5,9 @@ if has('cscope')
     set cst
     if has('quickfix')
         set csqf=s-,c-,d-,i-,t-,e-
-    endif        
+    endif
+
+    " Set up abbreviations
     cnoreabbrev <expr> csa
      \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs add'  : 'csa')
     cnoreabbrev <expr> csf
@@ -34,6 +36,21 @@ if has('cscope')
      \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs show' : 'css')
     cnoreabbrev <expr> csh
      \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
+
+    " Set up leader mappings
+    " Note space at end of line is purposeful
+    nnoremap <leader>csf :cs find f 
+    nnoremap <leader>css :cs find s 
+    nnoremap <leader>csg :cs find g 
+    nnoremap <leader>cst :cs find t 
+    nnoremap <leader>csc :cs find c 
+    nnoremap <leader>csd :cs find d 
+    nnoremap <leader>csi :cs find i 
+    nnoremap <leader>cse :cs find e 
+    nnoremap <leader>csa :cs add 
+    nnoremap <leader>csk :cs kill 
+    nnoremap <leader>csr :cs reset 
+    nnoremap <leader>csh :cs help 
 endif
 
 " Load Cscope Databases
@@ -49,3 +66,4 @@ if !exists("g:cscopes_loaded")
     endfor
     set csverb
 endif
+
