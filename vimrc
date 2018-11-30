@@ -8,6 +8,24 @@ let g:deoplete#enable_at_startup = 1
 " Use space key for leader
 let mapleader = " "
 
+" Set neovim to use the special neovim virtualenvs
+" This is disabled if a virtualenv is active because of a bug in jedi that
+" doesn't always honor VIRTUAL_ENV and instead uses the python_host_prog
+" For now I'll just install neovim into each virtualenv :(
+" See https://github.com/davidhalter/jedi-vim/issues/722
+" If would be slightly better if this knew which python version the virtual_env
+" used and only set the other version...
+let python_version = system('python --version')
+" if empty($VIRTUAL_ENV) || python_version =~ "Python 2"
+  " let g:python3_host_prog = $NVIM_PY3_PROG
+" endif
+" if empty($VIRTUAL_ENV) || python_version =~ "Python 3"
+  " let g:python_host_prog = $NVIM_PY2_PROG
+" endif
+" Temporary
+let g:python_host_prog = $NVIM_PY2_PROG
+let g:python3_host_prog = $NVIM_PY3_PROG
+
 " 1. Get the absolute path of the script
 " 2. Resolve symbolic links
 " 3. Get the folder of the resolved absolute file
@@ -28,7 +46,7 @@ source $VIMRC_DIR/vimrc_ack
 source $VIMRC_DIR/vimrc_ctrlp
 "source $VIMRC_DIR/vimrc_ycm
 
-"source $VIMRC_DIR/vimrc_cscope " TODO investigate neovim on quit caused by this
+source $VIMRC_DIR/vimrc_cscope " TODO investigate neovim on quit caused by this
 "source $VIMRC_DIR/vimrc_debug
 "source $VIMRC_DIR/vimrc_linenumbers
 "source $VIMRC_DIR/vimrc_make
