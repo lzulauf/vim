@@ -7,7 +7,9 @@ call vundle#begin('$HOME/.vundle')
 Plugin 'gmarik/vundle'
 
 " Fancy status bar
-Plugin 'Lokaltog/vim-powerline'
+"Plugin 'powerline/powerline'
+Plugin 'vim-airline/vim-airline'
+let g:Powerline_stl_path_style = 'short'
 
 " For use with Unite
 "Plugin 'Shougo/neomru.vim'
@@ -126,12 +128,14 @@ Plugin 'tpope/vim-fugitive' " Git support
 Plugin 'tpope/vim-rhubarb'  " Github support
 
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-abolish' " Replace find/replace matching existing casing, or swap casing schemes
 "Plugin 'tpope/vim-pathogen'
 if has('nvim')
   "Plugin 'Valloric/YouCompleteMe'
   Plugin 'Shougo/deoplete.nvim'
   Plugin 'zchee/deoplete-jedi'
   Plugin 'davidhalter/jedi-vim'
+  Plugin 'artur-shaik/vim-javacomplete2'
 else
   Plugin 'Valloric/YouCompleteMe'
 endif
