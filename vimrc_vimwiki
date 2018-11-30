@@ -4,7 +4,10 @@
 let g:vimwiki_hl_cb_checked=1
 " Disable hilighting of non-existent wiki links
 if !exists("g:vimwiki_list")
-    let g:vimwiki_list = [{'path' : '~/Dropbox/vimwiki', 'path_html' : '~/Dropbox/vimwiki_html', 'maxhi': 0}]
+    let g:vimwiki_list = [{'path' : '~/vimwiki',
+                         \ 'path_html' : '~/vimwiki_html',
+                         \ 'syntax': 'markdown',
+                         \ 'maxhi': 0}]
 endif
 
 " Special Vimwiki Syntax hilighting
