@@ -9,7 +9,18 @@ Plugin 'gmarik/vundle'
 " Fancy status bar
 "Plugin 'powerline/powerline'
 Plugin 'vim-airline/vim-airline'
-let g:Powerline_stl_path_style = 'short'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+" let g:Powerline_stl_path_style = 'short'
 
 " For use with Unite
 "Plugin 'Shougo/neomru.vim'
@@ -30,9 +41,6 @@ Plugin 'sbdchd/neoformat'
 
 " Shows marks in a file
 " Not compatible with neovim?
-
-" Text Snippets
-"Plugin 'UltiSnips'
 
 " Crunch math plugin (requires selection)
 Plugin 'arecarn/crunch'
@@ -71,6 +79,13 @@ Plugin 'PeterRincker/vim-argumentative'
 " Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
 "Plugin 'git://git.wincent.com/command-t.git'
 
+" Text Snippets
+" Not working with neovim?
+" Plugin 'UltiSnips'
+
+" Unmaintained?
+"Plugin 'snipMate'
+
 " Special snipmate branch that's maintained
 " vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -105,23 +120,38 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin "michaeljsmith/vim-indent-object"
 
 " Multiple Cursors
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'mg979/vim-visual-multi'
+" Old multi-cursors config
 " " Make C-n default to match whole words, (and make g<C-n> match non-word boundaries)
-let g:multi_cursor_start_key='g<C-n>'
-let g:multi_cursor_start_word_key='<C-n>'
+" let g:multi_cursor_start_key='g<C-n>'
+" let g:multi_cursor_start_word_key='<C-n>'
 " " Allow normal mode leader keys to work (such as camelCaseMotion and delete motions)
-let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
+" let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
 
-" Might be slow?
 Plugin 'w0rp/ale'
+
+Plugin 'alfredodeza/pytest.vim'
+nmap <silent><Leader>pp <Esc>:Pytest project<CR>
+nmap <silent><Leader>pf <Esc>:Pytest file<CR>
+nmap <silent><Leader>pc <Esc>:Pytest class<CR>
+nmap <silent><Leader>pm <Esc>:Pytest method<CR>
+
+Plugin 'JeunghunKim/pudb.vim'
+
+" React jsx
+Plugin 'MaxMEllon/vim-jsx-pretty'
 
 "Plugin 'MultipleSearch'
 "Plugin 'recover.vim'
 Plugin 'scrooloose/nerdcommenter'
 "Plugin 'sjl/splice.vim'
-"Plugin 'snipMate'
+"
+" Needed for js support in tagbar
+" See install directions at https://github.com/majutsushi/tagbar/wiki#jsctags-depends-on-tern--recommended-
+Plugin 'ternjs/tern_for_vim'
 Plugin 'majutsushi/tagbar'
 nnoremap <leader>t :TagbarOpenAutoClose<CR>
+
 "Plugin 'taglist.vim'
 "Plugin 'terryma/vim-expand-region'
 Plugin 'tpope/vim-fugitive' " Git support
@@ -140,7 +170,16 @@ else
   Plugin 'Valloric/YouCompleteMe'
 endif
 "Plugin 'vim-indent-object'
-Plugin 'vimwiki'
+
+"Wiki and Markdown support
+" Plugin 'vimwiki'
+Plugin 'lervag/wiki.vim'
+Plugin 'lervag/wiki-ft.vim' " TODO try vim-markdown/tabular/built-in markdown
+Plugin 'godlygeek/tabular'  " Needed by vim-markdown
+Plugin 'plasticboy/vim-markdown'
+
+Plugin 'manabuishii/vim-cwl'
+Plugin 'mustache/vim-mustache-handlebars'
 
 call vundle#end()
 filetype plugin on

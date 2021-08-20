@@ -1,10 +1,12 @@
+let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
 " UltiSnips setup
-let g:UltiSnipsSnippetsDir = "~/.UltiSnips"
+let g:UltiSnipsSnippetsDir = "$VIMRC_DIR/snippets"
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<s-tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsListSnippets="<c-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-g>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
@@ -12,5 +14,5 @@ let g:UltiSnipsEditSplit="horizontal"
 
 
 " SnipMate
-:imap <C-J> <Plug>snipMateNextOrTrigger
-:smap <C-J> <Plug>snipMateNextOrTrigger
+"imap <C-J> :call <Plug>(snipMateNextOrTrigger)
+"smap <C-J> :call <Plug>(snipMateNextOrTrigger)

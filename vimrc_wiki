@@ -1,0 +1,2 @@
+let g:wiki_root='~/vimwiki'
+let g:wiki_journal={'name': 'diary', 'frequency': 'daily'}

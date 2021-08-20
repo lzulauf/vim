@@ -81,3 +81,6 @@ endif
 " Configure python smart indentation to use just one shiftwidth instead of 2
 " when indenting inside an open parenthesis
 let g:pyindent_open_paren = "shiftwidth() * 1"
+
+" Disable automatic hiding of json quotes
+let g:vim_json_syntax_conceal = 0

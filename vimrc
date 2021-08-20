@@ -4,7 +4,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-let g:deoplete#enable_at_startup = 1
 " Use space key for leader
 let mapleader = " "
 
@@ -15,16 +14,19 @@ let mapleader = " "
 " See https://github.com/davidhalter/jedi-vim/issues/722
 " If would be slightly better if this knew which python version the virtual_env
 " used and only set the other version...
-let python_version = system('python --version')
+" let python_version = system('python --version')
 " if empty($VIRTUAL_ENV) || python_version =~ "Python 2"
-  " let g:python3_host_prog = $NVIM_PY3_PROG
+"   let g:python3_host_prog = $NVIM_PY3_PROG
 " endif
 " if empty($VIRTUAL_ENV) || python_version =~ "Python 3"
-  " let g:python_host_prog = $NVIM_PY2_PROG
+"   let g:python_host_prog = $NVIM_PY2_PROG
 " endif
 " Temporary
 let g:python_host_prog = $NVIM_PY2_PROG
 let g:python3_host_prog = $NVIM_PY3_PROG
+
+" Set make to run our linter
+set makeprg=flake8
 
 " 1. Get the absolute path of the script
 " 2. Resolve symbolic links
@@ -32,11 +34,12 @@ let g:python3_host_prog = $NVIM_PY3_PROG
 let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRC_DIR/vimrc_vundle
 "source $VIMRC_DIR/vimrc_unite
-source $VIMRC_DIR/vimrc_deoplete
-source $VIMRC_DIR/vimrc_ale
+"source $VIMRC_DIR/vimrc_deoplete
+"source $VIMRC_DIR/vimrc_ale
 source $VIMRC_DIR/vimrc_options
 source $VIMRC_DIR/vimrc_colors
-source $VIMRC_DIR/vimrc_vimwiki
+"source $VIMRC_DIR/vimrc_vimwiki
+source $VIMRC_DIR/vimrc_wiki
 source $VIMRC_DIR/vimrc_linter
 source $VIMRC_DIR/vimrc_autocmd
 source $VIMRC_DIR/vimrc_snips
@@ -49,7 +52,7 @@ source $VIMRC_DIR/vimrc_ctrlp
 source $VIMRC_DIR/vimrc_cscope " TODO investigate neovim on quit caused by this
 "source $VIMRC_DIR/vimrc_debug
 "source $VIMRC_DIR/vimrc_linenumbers
-"source $VIMRC_DIR/vimrc_make
+source $VIMRC_DIR/vimrc_make
 "source $VIMRC_DIR/vimrc_pretty
 "source $VIMRC_DIR/vimrc_snipmate
 "source $VIMRC_DIR/vimrc_versioncontrol

@@ -1,5 +1,7 @@
 " nerd commenter setup
 let g:NERDCustomDelimiters = {
-    \ 'html': { 'left': '<!-- ', 'right': '-->', 'leftAlt': '{#', 'rightAlt': '#}' }
+    \ 'html': { 'left': '<!-- ', 'right': '-->', 'leftAlt': '{#', 'rightAlt': '#}' },
+    \ 'python': { 'left': '#' }
     \ }
 let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'

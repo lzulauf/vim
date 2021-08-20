@@ -1,10 +1,11 @@
 let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case = 1
+call deoplete#custom#option({
+      \ 'smart_case': v:true,
+      \ 'omni_patterns': {
+      \   'java': '[^. *\t]\.\w*',
+      \ },
+      \ })
 let g:deoplete#sources#jedi#show_docstring=1
-
-" Java support
-let g:deoplete#omni_patterns = {}
-let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
 
 " Disable jedi-vim completions
 let g:jedi#completions_enabled = 0
