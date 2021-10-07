@@ -40,6 +40,7 @@ source $VIMRC_DIR/vimrc_options
 source $VIMRC_DIR/vimrc_colors
 "source $VIMRC_DIR/vimrc_vimwiki
 source $VIMRC_DIR/vimrc_wiki
+source $VIMRC_DIR/vimrc_lists
 source $VIMRC_DIR/vimrc_linter
 source $VIMRC_DIR/vimrc_autocmd
 source $VIMRC_DIR/vimrc_snips
