@@ -1,11 +1,15 @@
 let g:ale_linters = {
+\ 'css': ['prettier'],
+\ 'javascript': ['prettier'],
+\ 'markdown': ['prettier'],
 \ 'python': ['flake8'],
 \}
 
 let g:ale_fixers = {
-\ 'python': ['isort'],
-\ 'javascript': ['prettier'],
 \ 'css': ['prettier'],
+\ 'javascript': ['prettier'],
+\ 'markdown': ['prettier'],
+\ 'python': ['isort'],
 \ }
 
 let g:ale_virtualenv_dir_names = [
@@ -17,6 +21,9 @@ let g:ale_python_flake8_options = '--max-line-length=100'
 "let g:ale_python_pylint_use_global = 1 " Use the exeutable explicitly defined
 let g:ale_python_pylint_executable = '/Users/luke/.virtualenv/default/bin/python'
 let g:ale_python_pylint_options = '/usr/local/bin/pylint'
+
+"let g:ale_javascript_prettier_executable = 'npx'
+"let g:ale_javascript_prettier_options = 'prettier --trailing-comma all --print-width 100'
 
 nmap <leader>ap <Plug>(ale_previous_wrap)
 nmap <leader>an <Plug>(ale_next_wrap)
