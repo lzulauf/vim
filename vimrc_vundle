@@ -1,8 +1,8 @@
 set nocompatible
 filetype off
-set rtp+=~/.vundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin('$HOME/.vundle')
+call vundle#begin()
 
 Plugin 'gmarik/vundle'
 
@@ -18,7 +18,7 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '☰ '
 let g:airline_symbols.maxlinenr = ''
 " let g:Powerline_stl_path_style = 'short'
 
@@ -179,6 +179,7 @@ Plugin 'lervag/wiki-ft.vim' " TODO try vim-markdown/tabular/built-in markdown
 Plugin 'godlygeek/tabular'  " Needed by vim-markdown
 Plugin 'plasticboy/vim-markdown'
 
+Plugin 'LukeGoodsell/nextflow-vim'
 Plugin 'manabuishii/vim-cwl'
 Plugin 'mustache/vim-mustache-handlebars'
 
