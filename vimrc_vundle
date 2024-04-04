@@ -172,8 +172,7 @@ endif
 "Plugin 'vim-indent-object'
 
 "Wiki and Markdown support
-" Plugin 'vimwiki'
-Plugin 'lervag/wiki.vim'
+" Plugin 'lervag/wiki.vim'
 Plugin 'lervag/lists.vim'
 Plugin 'lervag/wiki-ft.vim' " TODO try vim-markdown/tabular/built-in markdown
 Plugin 'godlygeek/tabular'  " Needed by vim-markdown
