@@ -21,9 +21,10 @@ let mapleader = " "
 " if empty($VIRTUAL_ENV) || python_version =~ "Python 3"
 "   let g:python_host_prog = $NVIM_PY2_PROG
 " endif
-" Temporary
-let g:python_host_prog = $NVIM_PY2_PROG
-let g:python3_host_prog = $NVIM_PY3_PROG
+
+" Just let vim find python natively for now
+"let g:python_host_prog = $NVIM_PY2_PROG
+"let g:python3_host_prog = $NVIM_PY3_PROG
 
 " Set make to run our linter
 set makeprg=flake8
