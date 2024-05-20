@@ -18,14 +18,14 @@ if has("autocmd")
   " For all text files set 'textwidth' to 78 characters.
   " A textwidth of 0 means to use the min(current_screen_width, 79)
   set textwidth=78
-  autocmd FileType text setlocal textwidth=80
+  autocmd FileType text setlocal textwidth=110
   autocmd FileType cpp setlocal textwidth=80
   autocmd FileType ?akefile* setlocal noet ts=8 sts=8 sw=8
-  autocmd FileType python setlocal textwidth=100 cc=101 shiftwidth=4 tabstop=4 softtabstop=4
-  autocmd FileType java setlocal textwidth=100 cc=101 shiftwidth=2 tabstop=2 softtabstop=2
-  autocmd FileType html setlocal textwidth=80 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType python setlocal textwidth=110 cc=111 shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType java setlocal textwidth=110 cc=111 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType html setlocal textwidth=110 cc=111 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType htmldjango setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
-  autocmd FileType javascript setlocal textwidth=100 cc=101 shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType javascript setlocal textwidth=110 cc=111 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType css setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType scss setlocal textwidth=0 cc=81 shiftwidth=2 tabstop=2 softtabstop=2
   autocmd FileType vim setlocal textwidth=0
