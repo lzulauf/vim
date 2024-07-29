@@ -182,5 +182,8 @@ Plugin 'LukeGoodsell/nextflow-vim'
 Plugin 'manabuishii/vim-cwl'
 Plugin 'mustache/vim-mustache-handlebars'
 
+" Graphql syntax
+Plugin 'jparise/vim-graphql'
+
 call vundle#end()
 filetype plugin on
