@@ -34,6 +34,7 @@ set makeprg=flake8
 " 3. Get the folder of the resolved absolute file
 let $VIMRC_DIR=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 source $VIMRC_DIR/vimrc_vundle
+source $VIMRC_DIR/vimrc_airline
 "source $VIMRC_DIR/vimrc_unite
 "source $VIMRC_DIR/vimrc_deoplete
 source $VIMRC_DIR/vimrc_ale
