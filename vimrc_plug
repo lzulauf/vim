@@ -1,0 +1,173 @@
+call plug#begin()
+
+" Fancy status bar
+"Plug 'powerline/powerline'
+"Plug 'vim-airline/vim-airline'
+
+" For use with Unite
+"Plug 'Shougo/neomru.vim'
+
+" Quick jumping to file
+"Plug 'Shougo/unite.vim'
+"Plug 'Shougo/unite-outline'
+"Plug 'Shougo/neoyank.vim'
+"Plug 'thinca/vim-unite-history'
+" Plug 'osyo-manga/unite-quickfix'
+
+" Run processes in the background
+Plug 'Shougo/vimproc.vim'
+
+" Formatting
+Plug 'sbdchd/neoformat'
+
+
+" Shows marks in a file
+" Not compatible with neovim?
+
+" Crunch math plugin (requires selection)
+Plug 'arecarn/crunch'
+Plug 'arecarn/selection.vim'
+
+" Visual representation of indentations
+" To see timing:
+" :syntime on
+" browse file
+" :syntime report
+Plug 'Yggdroot/indentLine'
+let g:indentLine_faster = 1
+
+" Quickly jump to alternate file
+"Plug 'vim-scripts/a.vim'
+
+" Solarized color scheme
+" colorscheme solarized
+" Plug 'altercation/vim-colors-solarized'
+" colorscheme NeoSolarized
+" Plug 'iCyMind/NeoSolarized'
+Plug 'lifepillar/vim-solarized8', {'branch': 'neovim'}
+
+" camelcase motion
+Plug 'vim-scripts/camelcasemotion'
+
+" CSV file handling
+Plug 'chrisbra/csv.vim'
+
+" Argumentative swaps arguments around
+Plug 'PeterRincker/vim-argumentative'
+
+" Time lapse view of commits for file
+" Plug 'vim-scripts/git-time-lapse'
+
+" Quickly jump to files
+" Requires ruby installed at same version vim compiled against (Don't feel like dealing with this right now)
+"Plug 'git://git.wincent.com/command-t.git'
+
+" Text Snippets
+" Not working with neovim?
+" Plug 'vim-scripts/UltiSnips'
+
+" Unmaintained?
+"Plug 'vim-scripts/snipMate'
+
+" Special snipmate branch that's maintained
+" vim-addon-mw-utils and tlib_vim are both required by vim-snipmate
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+
+" Undo tree visualization
+Plug 'sjl/gundo.vim'
+nnoremap <leader>u :GundoToggle<CR>
+
+" Diff two blocks of lines
+Plug 'vim-scripts/linediff.vim'
+
+" Show status of lines from version control
+" Plug 'mhinz/vim-signify'
+
+" Integration of ack (needed for ag)
+Plug 'mileszs/ack.vim'
+
+" CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+
+" Rainbow parens
+" Breaks vim link rendering
+" Plug 'luochen1990/rainbow'
+" let g:rainbow_active=1
+
+" Plug 'tomtom/quickfixsigns_vim'
+" "let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'vcsdiff', 'breakpoints']
+" let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
+
+" Plug "michaeljsmith/vim-indent-object"
+
+" Multiple Cursors
+Plug 'mg979/vim-visual-multi'
+" Old multi-cursors config
+" " Make C-n default to match whole words, (and make g<C-n> match non-word boundaries)
+" let g:multi_cursor_start_key='g<C-n>'
+" let g:multi_cursor_start_word_key='<C-n>'
+" " Allow normal mode leader keys to work (such as camelCaseMotion and delete motions)
+" let g:multi_cursor_normal_maps={',':1, 'd':1, 'g':1}
+
+Plug 'w0rp/ale'
+
+Plug 'alfredodeza/pytest.vim'
+nmap <silent><Leader>pp <Esc>:Pytest project<CR>
+nmap <silent><Leader>pf <Esc>:Pytest file<CR>
+nmap <silent><Leader>pc <Esc>:Pytest class<CR>
+nmap <silent><Leader>pm <Esc>:Pytest method<CR>
+
+"Plug 'JeunghunKim/pudb.vim'
+
+" React jsx
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+"Plug 'vim-scripts/MultipleSearch'
+"Plug 'vim-scripts/recover.vim'
+Plug 'scrooloose/nerdcommenter'
+"Plug 'sjl/splice.vim'
+"
+" Needed for js support in tagbar
+" See install directions at https://github.com/majutsushi/tagbar/wiki#jsctags-depends-on-tern--recommended-
+Plug 'ternjs/tern_for_vim'
+Plug 'majutsushi/tagbar'
+nnoremap <leader>t :TagbarOpenAutoClose<CR>
+
+"Plug 'vim-scripts/taglist.vim'
+"Plug 'terryma/vim-expand-region'
+Plug 'tpope/vim-fugitive' " Git support
+Plug 'tpope/vim-rhubarb'  " Github support
+
+Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-abolish' " Replace find/replace matching existing casing, or swap casing schemes
+"Plug 'tpope/vim-pathogen'
+if has('nvim')
+  "Plug 'Valloric/YouCompleteMe'
+   Plug 'Shougo/deoplete.nvim'
+  Plug 'zchee/deoplete-jedi'
+  Plug 'davidhalter/jedi-vim'
+  Plug 'artur-shaik/vim-javacomplete2'
+else
+  Plug 'Valloric/YouCompleteMe'
+endif
+"Plug 'vim-scripts/vim-indent-object'
+
+"Wiki and Markdown support
+" Plug 'lervag/wiki.vim'
+Plug 'lervag/lists.vim'
+Plug 'lervag/wiki-ft.vim' " TODO try vim-markdown/tabular/built-in markdown
+Plug 'godlygeek/tabular'  " Needed by vim-markdown
+Plug 'plasticboy/vim-markdown'
+
+Plug 'LukeGoodsell/nextflow-vim'
+Plug 'manabuishii/vim-cwl'
+Plug 'mustache/vim-mustache-handlebars'
+
+" Graphql syntax
+Plug 'jparise/vim-graphql'
+
+call plug#end()
+filetype plugin on
+

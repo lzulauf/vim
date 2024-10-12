@@ -8,4 +8,4 @@ call deoplete#custom#option({
 let g:deoplete#sources#jedi#show_docstring=1
 
 " Disable jedi-vim completions
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled = 1

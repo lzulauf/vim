@@ -51,19 +51,19 @@ if has('cscope')
     nnoremap <leader>csk :cs kill 
     nnoremap <leader>csr :cs reset 
     nnoremap <leader>csh :cs help 
-endif
 
-" Load Cscope Databases
-"
-" Get all the cscope databases in the current directory
-" Only do this if not already done.
-if !exists("g:cscopes_loaded")
-    let g:cscopes_loaded = 1
-    let dbs = split(globpath('.', '.*.cscope'), '\n')
-    set nocsverb
-    for db in dbs
-        exe "cs add ".db
-    endfor
-    set csverb
-endif
+  " Load Cscope Databases
+  "
+  " Get all the cscope databases in the current directory
+  " Only do this if not already done.
+  if !exists("g:cscopes_loaded")
+      let g:cscopes_loaded = 1
+      let dbs = split(globpath('.', '.*.cscope'), '\n')
+      set nocsverb
+      for db in dbs
+          exe "cs add ".db
+      endfor
+      set csverb
+  endif
 
+endif
