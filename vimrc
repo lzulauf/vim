@@ -24,7 +24,7 @@ let mapleader = " "
 
 " Just let vim find python natively for now
 "let g:python_host_prog = $NVIM_PY2_PROG
-"let g:python3_host_prog = $NVIM_PY3_PROG
+let g:python3_host_prog = "/home/aurelia/.pyenv/versions/aurelia/bin/python"
 
 " Set make to run our linter
 set makeprg=flake8
